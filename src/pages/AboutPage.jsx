@@ -15,10 +15,10 @@ import {
   ArrowRight,
   GraduationCap
 } from "lucide-react";
-import aboutHeroImg from "../assets/about-hero.jpg";
+import aboutHeroImg from "../assets/about-hero.webp";
 import aboutImg from "../assets/aboutimg.jpg";
-import placementCellImg from "../assets/placement-cell.jpg";
-import offlineTrainingImg from "../assets/offline-training.jpg";
+import placementCellImg from "../assets/placement-cell.webp";
+import offlineTrainingImg from "../assets/offline-training.webp";
 
 const AboutPage = ({
   onNavigate,
@@ -143,7 +143,7 @@ const AboutPage = ({
           ] }),
           /* @__PURE__ */ jsx("h3", { className: "font-['Space_Grotesk'] text-xl sm:text-2xl text-stone-900 font-normal", children: "450+ Hiring Partners & Corporate Placement Network" }),
           /* @__PURE__ */ jsx("p", { className: "text-xs sm:text-sm text-stone-600 leading-relaxed font-normal", children: "Our dedicated placement division works with leading IT services MNCs, product engineering firms, and high-growth AI startups to schedule direct interviews for VedhaAI graduates." }),
-          /* @__PURE__ */ jsx("div", { className: "pt-2", children: /* @__PURE__ */ jsxs("button", { type: "button", onClick: () => onNavigate("internships"), className: "px-5 py-2.5 bg-[#2c9320] hover:bg-[#257d1b] text-white rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-2 cursor-pointer shadow-xs", children: [
+          /* @__PURE__ */ jsx("div", { className: "pt-2", children: /* @__PURE__ */ jsxs("a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); onNavigate("internships"); }, className: "px-5 py-2.5 bg-[#2c9320] hover:bg-[#257d1b] text-white rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-2 cursor-pointer shadow-xs", children: [
             /* @__PURE__ */ jsx("span", { children: "Explore Internship Policy & Partners" }),
             /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
           ] }) })

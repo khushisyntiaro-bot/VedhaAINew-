@@ -2,14 +2,14 @@ import javaImage from "../assets/java.jpg";
 import advancedJavaImage from "../assets/advancedjava.jpg";
 import javaWithDsaImage from "../assets/javawithdsa.jpg";
 import javaWithFlutterImage from "../assets/javawithflutter.jpg";
-import javaCourseFullImage from "../assets/java-course-fullimage.png";
+import javaCourseFullImage from "../assets/java-course-fullimage.webp";
 import python1Image from "../assets/python-1.webp";
 import sqlLogoImage from "../assets/sqllogo.webp";
-import advancedExcelImage from "../assets/advanced-excel-training-course.png";
+import advancedExcelImage from "../assets/advanced-excel-training-course.webp";
 import top5PythonLibsImage from "../assets/Top-5-Python-Librari.jpg";
 import powerBiImage from "../assets/Power-BI.jpg";
 import pythonAiImage from "../assets/python+AI.jpg";
-import dataAnalysisImage from "../assets/data analysis.jpg";
+import dataAnalysisImage from "../assets/data analysis.webp";
 
 const ALL_COURSES = [
   {

@@ -15,9 +15,9 @@ import {
   Check
 } from "lucide-react";
 import { INTERNSHIP_PARTNERS, FAQ_LIST } from "../data/coursesData";
-import placementCellImg from "../assets/placement-cell.jpg";
-import capstoneStudioImg from "../assets/capstone-studio.jpg";
-import certificateImg from "../assets/certificate.png";
+import placementCellImg from "../assets/placement-cell.webp";
+import capstoneStudioImg from "../assets/capstone-studio.webp";
+import certificateImg from "../assets/certificate.webp";
 
 export const InternshipsPage = ({
   onNavigate,

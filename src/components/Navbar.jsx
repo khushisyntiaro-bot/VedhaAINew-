@@ -7,7 +7,7 @@ import {
   UserCheck,
   CalendarCheck
 } from "lucide-react";
-import vedhaLogo from "../assets/vedhaailogo.png";
+import vedhaLogo from "../assets/vedhaailogo.webp";
 const Navbar = ({
   currentPage,
   onNavigate,
@@ -36,56 +36,38 @@ const Navbar = ({
       children: [
         /* @__PURE__ */ jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between gap-4", children: [
           /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => handleNavClick("home"),
+            "a", { href: "/", title: "home", onClick: (e) => { e.preventDefault(); handleNavClick("home"); },
               className: "text-left group cursor-pointer",
               children: /* @__PURE__ */ jsx("img", { src: vedhaLogo, alt: "VedhaAI Logo", className: "h-12 object-contain" })
             }
           ),
           /* @__PURE__ */ jsxs("nav", { className: "hidden lg:flex items-center gap-1", children: [
             /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("home"),
+              "a", { href: "/", title: "home", onClick: (e) => { e.preventDefault(); handleNavClick("home"); },
                 className: `px-3.5 py-2 border-b-2 text-sm transition-all cursor-pointer font-bold ${currentPage === "home" ? "text-[#2c9320] border-[#2c9320] font-bold" : "text-stone-600 border-transparent hover:text-[#2c9320] hover:border-[#2c9320]"}`,
                 children: "Home"
               }
             ),
             /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("about"),
+              "a", { href: "/about", title: "about", onClick: (e) => { e.preventDefault(); handleNavClick("about"); },
                 className: `px-3.5 py-2 border-b-2 text-sm transition-all cursor-pointer font-bold ${currentPage === "about" ? "text-[#2c9320] border-[#2c9320] font-bold" : "text-stone-600 border-transparent hover:text-[#2c9320] hover:border-[#2c9320]"}`,
                 children: "About Us"
               }
             ),
             /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("courses"),
+              "a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); handleNavClick("courses"); },
                 className: `px-3.5 py-2 border-b-2 text-sm transition-all cursor-pointer font-bold ${currentPage === "courses" ? "text-[#2c9320] border-[#2c9320] font-bold" : "text-stone-600 border-transparent hover:text-[#2c9320] hover:border-[#2c9320]"}`,
                 children: "Courses"
               }
             ),
             /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("ai-programs"),
+              "a", { href: "/ai-programs", title: "ai-programs", onClick: (e) => { e.preventDefault(); handleNavClick("ai-programs"); },
                 className: `px-3.5 py-2 border-b-2 text-sm transition-all cursor-pointer font-bold ${currentPage === "ai-programs" ? "text-[#2c9320] border-[#2c9320] font-bold" : "text-stone-600 border-transparent hover:text-[#2c9320] hover:border-[#2c9320]"}`,
                 children: "AI Programs"
               }
             ),
             /* @__PURE__ */ jsx(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("internships"),
+              "a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); handleNavClick("internships"); },
                 className: `px-3.5 py-2 border-b-2 text-sm transition-all cursor-pointer font-bold ${currentPage === "internships" ? "text-[#2c9320] border-[#2c9320] font-bold" : "text-stone-600 border-transparent hover:text-[#2c9320] hover:border-[#2c9320]"}`,
                 children: "Internship"
               }
@@ -148,10 +130,7 @@ const Navbar = ({
         mobileMenuOpen && /* @__PURE__ */ jsxs("div", { className: "lg:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 animate-in slide-in-from-top-3 duration-150", children: [
           /* @__PURE__ */ jsxs("div", { className: "space-y-1", children: [
             /* @__PURE__ */ jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("home"),
+              "a", { href: "/", title: "home", onClick: (e) => { e.preventDefault(); handleNavClick("home"); },
                 className: `w-full p-3 rounded-xl text-xs flex items-center justify-between text-left transition-colors font-normal ${currentPage === "home" ? "bg-[#2c9320]/10 text-[#2c9320] font-medium" : "text-stone-700 hover:bg-stone-50"}`,
                 children: [
                   /* @__PURE__ */ jsx("span", { children: "Home" }),
@@ -160,10 +139,7 @@ const Navbar = ({
               }
             ),
             /* @__PURE__ */ jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("about"),
+              "a", { href: "/about", title: "about", onClick: (e) => { e.preventDefault(); handleNavClick("about"); },
                 className: `w-full p-3 rounded-xl text-xs flex items-center justify-between text-left transition-colors font-normal ${currentPage === "about" ? "bg-[#2c9320]/10 text-[#2c9320] font-medium" : "text-stone-700 hover:bg-stone-50"}`,
                 children: [
                   /* @__PURE__ */ jsx("span", { children: "About Us" }),
@@ -172,10 +148,7 @@ const Navbar = ({
               }
             ),
             /* @__PURE__ */ jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("courses"),
+              "a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); handleNavClick("courses"); },
                 className: `w-full p-3 rounded-xl text-xs flex items-center justify-between text-left transition-colors font-normal ${currentPage === "courses" ? "bg-[#2c9320]/10 text-[#2c9320] font-medium" : "text-stone-700 hover:bg-stone-50"}`,
                 children: [
                   /* @__PURE__ */ jsx("span", { children: "Courses" }),
@@ -184,10 +157,7 @@ const Navbar = ({
               }
             ),
             /* @__PURE__ */ jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("ai-programs"),
+              "a", { href: "/ai-programs", title: "ai-programs", onClick: (e) => { e.preventDefault(); handleNavClick("ai-programs"); },
                 className: `w-full p-3 rounded-xl text-xs flex items-center justify-between text-left transition-colors font-normal ${currentPage === "ai-programs" ? "bg-[#2c9320]/10 text-[#2c9320] font-medium" : "text-stone-700 hover:bg-stone-50"}`,
                 children: [
                   /* @__PURE__ */ jsx("span", { children: "AI Programs" }),
@@ -196,10 +166,7 @@ const Navbar = ({
               }
             ),
             /* @__PURE__ */ jsxs(
-              "button",
-              {
-                type: "button",
-                onClick: () => handleNavClick("internships"),
+              "a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); handleNavClick("internships"); },
                 className: `w-full p-3 rounded-xl text-xs flex items-center justify-between text-left transition-colors font-normal ${currentPage === "internships" ? "bg-[#2c9320]/10 text-[#2c9320] font-medium" : "text-stone-700 hover:bg-stone-50"}`,
                 children: [
                   /* @__PURE__ */ jsx("span", { children: "Internship" }),

@@ -57,10 +57,15 @@ export const updatePageMetadata = (metadata) => {
  * Add structured data (JSON-LD) to page
  * @param {Object} schema - Schema.org JSON-LD object
  */
-export const addStructuredData = (schema) => {
+export const addStructuredData = (schema, id = "dynamic-structured-data") => {
   if (!schema) return;
-
+  const existing = document.getElementById(id);
+  if (existing) {
+    existing.innerHTML = JSON.stringify(schema);
+    return;
+  }
   const script = document.createElement("script");
+  script.id = id;
   script.type = "application/ld+json";
   script.innerHTML = JSON.stringify(schema);
   document.head.appendChild(script);
@@ -98,17 +103,26 @@ export const generateCourseSchema = (course) => {
     "@context": "https://schema.org",
     "@type": "Course",
     "name": course.title,
-    "description": course.fullDesc,
-    "url": `https://vedhaai.in/#/course/${course.id}`,
-    "image": course.image || "https://vedhaai.in/vedhaailogo.png",
+    "description": course.fullDesc || course.description,
+    "url": `https://vedhaai.in/course/${course.id}`,
+    "image": course.image || "https://vedhaai.in/vedhaailogo.webp",
+    "courseCode": course.id,
+    "timeRequired": "P8W",
+    "educationalCredentialAwarded": "Corporate Internship Certificate",
     "provider": {
       "@type": "Organization",
       "name": "VedhaAI",
       "url": "https://vedhaai.in"
     },
-    "duration": course.duration,
-    "courseCode": course.id,
-    "numberOfCredits": "100",
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR"
+    },
+    "hasCourseInstance": {
+      "@type": "CourseInstance",
+      "courseMode": "Blended",
+      "location": "Pune"
+    },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",

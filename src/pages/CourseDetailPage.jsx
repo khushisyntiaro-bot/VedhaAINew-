@@ -63,10 +63,7 @@ const CourseDetailPage = ({
     /* @__PURE__ */ jsx("div", { className: "border-b border-stone-100 bg-stone-50/70 py-3.5", children: /* @__PURE__ */ jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-xs", children: [
       /* Back Button */
       /* @__PURE__ */ jsxs(
-        "button",
-        {
-          type: "button",
-          onClick: () => onNavigate("courses"),
+        "a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); onNavigate("courses"); },
           className: "text-stone-600 hover:text-[#2c9320] flex items-center gap-1.5 font-medium cursor-pointer transition-colors",
           children: [
             /* @__PURE__ */ jsx(ArrowLeft, { className: "w-3.5 h-3.5 text-[#2c9320]" }),
@@ -104,7 +101,7 @@ const CourseDetailPage = ({
         ] }),
 
         /* Title */
-        /* @__PURE__ */ jsx("h1", { className: "font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl text-stone-900 font-normal tracking-tight leading-tight", children: course.title }),
+        /* @__PURE__ */ jsx("h1", { className: "font-['Space_Grotesk'] text-3xl sm:text-4xl lg:text-5xl text-stone-900 font-normal tracking-tight leading-tight", children: course.title + " Course in Pune with Guaranteed Internship" }),
 
         /* Full Description */
         /* @__PURE__ */ jsx("p", { className: "text-stone-600 text-sm sm:text-base leading-relaxed font-normal max-w-3xl", children: course.fullDesc }),

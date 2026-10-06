@@ -2,10 +2,10 @@ import { jsx, jsxs } from "react/jsx-runtime";
 import { ALL_COURSES } from "../data/coursesData";
 import { CollegeAISummitSection } from "../components/CollegeAISummitSection";
 import { GoogleReviewsSection } from "../components/GoogleReviewsSection";
-import onlineTrainingImg from "../assets/online-training.jpg";
-import offlineTrainingImg from "../assets/offline-training.jpg";
-import placementCellImg from "../assets/placement-cell.jpg";
-import capstoneStudioImg from "../assets/capstone-studio.jpg";
+import onlineTrainingImg from "../assets/online-training.webp";
+import offlineTrainingImg from "../assets/offline-training.webp";
+import placementCellImg from "../assets/placement-cell.webp";
+import capstoneStudioImg from "../assets/capstone-studio.webp";
 import {
   ShieldCheck,
   Sparkles,
@@ -55,7 +55,7 @@ const HomePage = ({
       /* @__PURE__ */ jsxs("div", { className: "max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10", children: [
         /* Hero Heading */
         /* @__PURE__ */ jsxs("h1", { className: "font-['Space_Grotesk'] text-2xl sm:text-3xl lg:text-4xl text-white tracking-tight leading-[1.15] font-normal max-w-4xl mx-auto", children: [
-          "Launch Your High-Growth Tech Career with ",
+          "Best IT Training Academy in Pune with 100% Guaranteed Internship | ",
           /* @__PURE__ */ jsx("span", { className: "text-white font-medium", children: "VedhaAI" })
         ] }),
 
@@ -74,9 +74,7 @@ const HomePage = ({
               /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4 group-hover:translate-x-0.5 transition-transform" })
             ]
           }),
-          /* @__PURE__ */ jsxs("button", {
-            type: "button",
-            onClick: () => onNavigate("courses"),
+          /* @__PURE__ */ jsxs("a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); onNavigate("courses"); },
             className: "w-full sm:w-auto px-6 py-3.5 bg-stone-900/80 hover:bg-stone-800 text-stone-200 hover:text-white border border-stone-700/80 rounded-xl text-sm transition-colors cursor-pointer font-medium flex items-center justify-center gap-2 backdrop-blur-md",
             children: [
               /* @__PURE__ */ jsx(BookOpen, { className: "w-4 h-4 text-emerald-400" }),
@@ -143,10 +141,7 @@ const HomePage = ({
           /* @__PURE__ */ jsx("h3", { className: "font-['Space_Grotesk'] text-base text-stone-900 font-medium", children: "100% Guaranteed Internship" }),
           /* @__PURE__ */ jsx("p", { className: "text-xs text-stone-600 leading-relaxed font-normal", children: "Every graduate is matched with a verified commercial internship in software engineering, cloud APIs, or data analytics with corporate certification." }),
           /* @__PURE__ */ jsxs(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("internships"),
+            "a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); onNavigate("internships"); },
               className: "text-xs text-[#2c9320] hover:underline flex items-center gap-1 pt-1 font-medium cursor-pointer",
               children: [
                 /* @__PURE__ */ jsx("span", { children: "Read Internship Policy" }),
@@ -160,10 +155,7 @@ const HomePage = ({
           /* @__PURE__ */ jsx("h3", { className: "font-['Space_Grotesk'] text-base text-stone-900 font-medium", children: "Modern AI-Infused Curriculum" }),
           /* @__PURE__ */ jsx("p", { className: "text-xs text-stone-600 leading-relaxed font-normal", children: "Learn modern Java 21 with Spring AI, Python with LangChain and RAG, plus automated unit testing and agentic workflows." }),
           /* @__PURE__ */ jsxs(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("ai-programs"),
+            "a", { href: "/ai-programs", title: "ai-programs", onClick: (e) => { e.preventDefault(); onNavigate("ai-programs"); },
               className: "text-xs text-[#2c9320] hover:underline flex items-center gap-1 pt-1 font-medium cursor-pointer",
               children: [
                 /* @__PURE__ */ jsx("span", { children: "View AI Programs" }),
@@ -177,10 +169,7 @@ const HomePage = ({
           /* @__PURE__ */ jsx("h3", { className: "font-['Space_Grotesk'] text-base text-stone-900 font-medium", children: "1-on-1 Code Reviews & Mentorship" }),
           /* @__PURE__ */ jsx("p", { className: "text-xs text-stone-600 leading-relaxed font-normal", children: "Receive line-by-line pull request feedback from senior architects, mock technical interviews, and resume optimization." }),
           /* @__PURE__ */ jsxs(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("about"),
+            "a", { href: "/about", title: "about", onClick: (e) => { e.preventDefault(); onNavigate("about"); },
               className: "text-xs text-[#2c9320] hover:underline flex items-center gap-1 pt-1 font-medium cursor-pointer",
               children: [
                 /* @__PURE__ */ jsx("span", { children: "About Our Mentors" }),
@@ -206,10 +195,7 @@ const HomePage = ({
           /* @__PURE__ */ jsx("p", { className: "text-stone-500 text-xs sm:text-sm font-normal", children: "Select a pathway to view complete week-by-week syllabus and book a free live demo." })
         ] }),
         /* @__PURE__ */ jsxs(
-          "button",
-          {
-            type: "button",
-            onClick: () => onNavigate("courses"),
+          "a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); onNavigate("courses"); },
             className: "px-4 py-2.5 bg-white border border-stone-200 hover:border-[#2c9320] text-stone-800 hover:text-[#2c9320] rounded-xl text-xs flex items-center gap-2 transition-colors self-start md:self-auto cursor-pointer font-medium shadow-xs",
             children: [
               /* @__PURE__ */ jsx("span", { children: "View All 12 Courses" }),
@@ -366,10 +352,7 @@ const HomePage = ({
         ] })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "flex flex-col sm:flex-row gap-3 w-full lg:w-auto shrink-0", children: /* @__PURE__ */ jsxs(
-        "button",
-        {
-          type: "button",
-          onClick: () => onNavigate("ai-programs"),
+        "a", { href: "/ai-programs", title: "ai-programs", onClick: (e) => { e.preventDefault(); onNavigate("ai-programs"); },
           className: "px-6 py-3.5 bg-[#2c9320] hover:bg-[#257d1b] text-white rounded-xl text-xs transition-colors flex items-center justify-center gap-2 font-medium cursor-pointer shadow-xs",
           children: [
             /* @__PURE__ */ jsx("span", { children: "Explore AI Programs" }),
@@ -402,10 +385,7 @@ const HomePage = ({
         ] })
       ] }),
       /* @__PURE__ */ jsx("div", { className: "mt-8 text-center", children: /* @__PURE__ */ jsxs(
-        "button",
-        {
-          type: "button",
-          onClick: () => onNavigate("internships"),
+        "a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); onNavigate("internships"); },
           className: "px-5 py-2.5 bg-white hover:bg-stone-50 border border-stone-200 hover:border-[#2c9320] text-stone-800 rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-2 cursor-pointer shadow-xs",
           children: [
             /* @__PURE__ */ jsx("span", { children: "Learn More About the 100% Internship Process" }),
@@ -449,7 +429,7 @@ const HomePage = ({
           ] })
         ] }),
         /* Button */
-        /* @__PURE__ */ jsx("div", { className: "pt-2", children: /* @__PURE__ */ jsxs("button", { type: "button", onClick: () => onNavigate("internships"), className: "px-6 py-3 bg-[#2c9320] hover:bg-[#257d1b] text-white rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-2 cursor-pointer shadow-sm", children: [
+        /* @__PURE__ */ jsx("div", { className: "pt-2", children: /* @__PURE__ */ jsxs("a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); onNavigate("internships"); }, className: "px-6 py-3 bg-[#2c9320] hover:bg-[#257d1b] text-white rounded-xl text-xs font-medium transition-colors inline-flex items-center gap-2 cursor-pointer shadow-sm", children: [
           /* @__PURE__ */ jsx("span", { children: "Explore Placement & Internship Network" }),
           /* @__PURE__ */ jsx(ArrowRight, { className: "w-4 h-4" })
         ] }) })

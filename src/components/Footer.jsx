@@ -12,7 +12,7 @@ import {
   Linkedin,
   MessageCircle
 } from "lucide-react";
-import vedhaLogo from "../assets/vedhaailogo.png";
+import vedhaLogo from "../assets/vedhaailogo.webp";
 const Footer = ({
   onNavigate,
   onSelectCourse,
@@ -40,15 +40,18 @@ const Footer = ({
     /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-8 mb-10 text-xs font-normal items-start", children: [
       /* @__PURE__ */ jsxs("div", { className: "space-y-3.5 min-w-0", children: [
         /* @__PURE__ */ jsx(
-          "button",
-          {
-            type: "button",
-            onClick: () => onNavigate("home"),
+          "a", { href: "/", title: "home", onClick: (e) => { e.preventDefault(); onNavigate("home"); },
             className: "text-left cursor-pointer block",
             children: /* @__PURE__ */ jsx("img", { src: vedhaLogo, alt: "VedhaAI Logo", className: "h-16 object-contain" })
           }
         ),
-        /* @__PURE__ */ jsx("p", { className: "text-stone-400 leading-relaxed text-xs font-normal", children: "Outcome-driven IT training academy equipping engineering graduates with verified commercial internships across Java, Python, GenAI, and Analytics." }),
+        /* @__PURE__ */ jsxs("div", { className: "space-y-3", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-stone-400 leading-relaxed text-xs font-normal", children: "Outcome-driven IT training academy equipping engineering graduates with verified commercial internships. Serving students across Pune, PCMC, Akurdi, Nigdi, and the Hinjawadi IT Park corridor." }),
+          /* @__PURE__ */ jsxs("a", { href: "https://maps.google.com/?q=VedhaAI+Pune", target: "_blank", rel: "noopener noreferrer", className: "flex items-center gap-1.5 text-[11px] text-stone-400 hover:text-[#2c9320] transition-colors", children: [
+            /* @__PURE__ */ jsx("span", { className: "text-yellow-500", children: "★★★★★" }),
+            /* @__PURE__ */ jsx("span", { children: "4.8/5 (500+ Google Reviews)" })
+          ] })
+        ] }),
         /* @__PURE__ */ jsxs("div", { className: "inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-stone-800/80 text-stone-300 text-[11px] border border-stone-700", children: [
           /* @__PURE__ */ jsx(ShieldCheck, { className: "w-3.5 h-3.5 text-[#2c9320] shrink-0" }),
           /* @__PURE__ */ jsx("span", { children: "Govt. Reg. ISO Certified" })
@@ -58,55 +61,37 @@ const Footer = ({
         /* @__PURE__ */ jsx("h4", { className: "font-['Space_Grotesk'] text-xs text-white uppercase tracking-wider font-medium", children: "Navigation" }),
         /* @__PURE__ */ jsxs("ul", { className: "space-y-2 text-stone-400 font-normal", children: [
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("home"),
+            "a", { href: "/", title: "home", onClick: (e) => { e.preventDefault(); onNavigate("home"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "Home"
             }
           ) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("about"),
+            "a", { href: "/about", title: "about", onClick: (e) => { e.preventDefault(); onNavigate("about"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "About Us"
             }
           ) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("courses"),
+            "a", { href: "/courses", title: "courses", onClick: (e) => { e.preventDefault(); onNavigate("courses"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "All 12 Courses"
             }
           ) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("ai-programs"),
+            "a", { href: "/ai-programs", title: "ai-programs", onClick: (e) => { e.preventDefault(); onNavigate("ai-programs"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "AI Programs"
             }
           ) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("internships"),
+            "a", { href: "/internships", title: "internships", onClick: (e) => { e.preventDefault(); onNavigate("internships"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "Internship Assurance"
             }
           ) }),
           /* @__PURE__ */ jsx("li", { children: /* @__PURE__ */ jsx(
-            "button",
-            {
-              type: "button",
-              onClick: () => onNavigate("counseling"),
+            "a", { href: "/counseling", title: "counseling", onClick: (e) => { e.preventDefault(); onNavigate("counseling"); },
               className: "hover:text-[#2c9320] transition-colors cursor-pointer text-left block",
               children: "Career Counseling"
             }
@@ -201,7 +186,7 @@ const Footer = ({
           ] }),
           /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-2", children: [
             /* @__PURE__ */ jsx(MapPin, { className: "w-4 h-4 text-[#2c9320] shrink-0 mt-0.5" }),
-            /* @__PURE__ */ jsx("span", { className: "leading-relaxed text-stone-400 text-[11px]", children: "ABC Junction Sector 26 Nigdi Pradhikaran Near Akurdi Railway Station Pune - 411044" })
+            /* @__PURE__ */ jsx("a", { href: "https://maps.google.com/?q=VedhaAI+ABC+Junction+Sector+26+Nigdi", target: "_blank", rel: "noopener noreferrer", className: "leading-relaxed text-stone-400 text-[11px] hover:text-[#2c9320] transition-colors", children: "ABC Junction Sector 26 Nigdi Pradhikaran Near Akurdi Railway Station, Pune, Maharashtra 411044" })
           ] })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "pt-2.5 space-y-2 border-t border-stone-800", children: [
@@ -255,6 +240,7 @@ const Footer = ({
         ] })
       ] })
     ] }),
+    
     /* @__PURE__ */ jsx("div", { className: "pt-6 pb-2 border-t border-stone-800 flex items-center justify-center text-xs text-stone-500 font-normal", children: "ALL rights Reserved By VedhaAI" })
   ] }) });
 };

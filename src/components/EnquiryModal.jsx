@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { X, User, Mail, BookOpen, ChevronDown, AlertCircle, CheckCircle2 } from "lucide-react";
-import vedhaLogo from "../assets/vedhaailogo.png";
+import vedhaLogo from "../assets/vedhaailogo.webp";
 
 const LOOKING_FOR = [
   "Java / Full Stack Development",

@@ -1,5 +1,8 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
+import { updatePageMetadata, addStructuredData, generateCourseSchema, generateFAQSchema, generateBreadcrumbSchema } from "./utils/seoHelper";
+import { PAGE_METADATA, COURSE_METADATA } from "./data/pageMetadata";
+
 import { MessageCircle } from "lucide-react";
 import WhatsAppFloating from "./components/WhatsAppFloating";
 import { ALL_COURSES } from "./data/coursesData";
@@ -32,8 +35,8 @@ function App() {
   const [modalSyllabusCourseId, setModalSyllabusCourseId] = useState(void 0);
   const [toastMessage, setToastMessage] = useState(null);
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace("#/", "").replace("#", "");
+    const handlePathChange = () => {
+      const hash = window.location.pathname.replace(/^\/+/, "");
       if (!hash) {
         setCurrentPage("home");
         return;
@@ -57,25 +60,25 @@ function App() {
         setCurrentPage("home");
       }
     };
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-    return () => window.removeEventListener("hashchange", handleHashChange);
+    handlePathChange();
+    window.addEventListener("popstate", handlePathChange);
+    return () => window.removeEventListener("popstate", handlePathChange);
   }, []);
   const handleNavigate = (page, param) => {
     if (page === "course-detail") {
       const cId = typeof param === "string" ? param : param?.id || ALL_COURSES[0].id;
       setSelectedCourseId(cId);
-      window.location.hash = `#/course/${cId}`;
+      window.history.pushState({}, "", `/course/${cId}`); window.dispatchEvent(new Event("popstate"));
     } else if (page === "ai-programs") {
       if (param === "genai-agentic") {
         setAiProgramFilter("genai-agentic");
-        window.location.hash = "#/ai-programs-genai";
+        window.history.pushState({}, "", "/ai-programs-genai"); window.dispatchEvent(new Event("popstate"));
       } else if (param === "ai-ml") {
         setAiProgramFilter("ai-ml");
-        window.location.hash = "#/ai-programs-ml";
+        window.history.pushState({}, "", "/ai-programs-ml"); window.dispatchEvent(new Event("popstate"));
       } else {
         setAiProgramFilter("all");
-        window.location.hash = "#/ai-programs";
+        window.history.pushState({}, "", "/ai-programs"); window.dispatchEvent(new Event("popstate"));
       }
     } else if (page === "counseling") {
       handleOpenCounseling(typeof param === "string" ? param : void 0);
@@ -84,7 +87,7 @@ function App() {
       handleOpenBookDemo(typeof param === "string" ? param : void 0);
       return;
     } else {
-      window.location.hash = `#/${page === "home" ? "" : page}`;
+      window.history.pushState({}, "", `/${page === "home" ? "" : page}`); window.dispatchEvent(new Event("popstate"));
     }
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -104,6 +107,67 @@ function App() {
   const handleSelectCourse = (course) => {
     setSelectedCourseId(course.id);
   };
+
+  useEffect(() => {
+    let meta;
+    if (currentPage === "course-detail") {
+      meta = COURSE_METADATA[selectedCourseId];
+      if (meta) {
+        meta = { ...meta, canonical: "https://vedhaai.in/course/" + selectedCourseId };
+      }
+    } else {
+      const pageKey = currentPage === "ai-programs" ? "aiPrograms" : 
+                      currentPage === "book-demo" ? "bookDemo" : 
+                      currentPage === "course-detail" ? "courseDetail" : currentPage;
+      meta = PAGE_METADATA[pageKey];
+      if (meta && currentPage !== "home") {
+        meta = { ...meta, canonical: "https://vedhaai.in/" + currentPage };
+      }
+    }
+    if (meta) {
+      updatePageMetadata(meta);
+    }
+
+    if (currentPage === "course-detail") {
+      const course = ALL_COURSES.find(c => c.id === selectedCourseId);
+      if (course) {
+        addStructuredData(generateCourseSchema(course), "course-schema");
+        const breadcrumbs = [
+          { name: "Home", url: "https://vedhaai.in/" },
+          { name: "Courses", url: "https://vedhaai.in/courses" },
+          { name: course.title, url: "https://vedhaai.in/course/" + course.id }
+        ];
+        addStructuredData(generateBreadcrumbSchema(breadcrumbs), "breadcrumb-schema");
+        // FAQ Schema if course has syllabus/faqs
+        const faqs = [];
+        if (course.syllabus) {
+          course.syllabus.forEach(item => {
+            faqs.push({ question: "What will I learn in " + item.module + "?", answer: item.topics.join(", ") });
+          });
+        }
+        if (faqs.length > 0) {
+          addStructuredData(generateFAQSchema(faqs), "faq-schema");
+        }
+      }
+    } else {
+      // Remove specific schemas if not on course detail
+      ["course-schema", "breadcrumb-schema", "faq-schema"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.remove();
+      });
+      
+      if (currentPage === "home") {
+        const homeFaqs = [
+          { question: "What is the course fee?", answer: "Our courses are affordably priced with easy EMI options available." },
+          { question: "Is internship guaranteed in writing?", answer: "Yes, we provide a 100% written guarantee for corporate internships." },
+          { question: "Are classes offline in Pune or online?", answer: "We offer blended learning with both offline classes in Pune and online options." }
+        ];
+        addStructuredData(generateFAQSchema(homeFaqs), "faq-schema");
+      }
+    }
+
+  }, [currentPage, selectedCourseId]);
+
   return /* @__PURE__ */ jsxs("div", { className: "min-h-screen bg-white text-stone-800 flex flex-col font-['Plus_Jakarta_Sans',sans-serif] font-normal selection:bg-[#2c9320] selection:text-white", children: [
     /* @__PURE__ */ jsx(
       Navbar,

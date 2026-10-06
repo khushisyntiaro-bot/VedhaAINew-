@@ -11,7 +11,7 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="author" content="VedhaAI" />
     <meta name="language" content="English" />
-    <link rel="icon" type="image/jpeg" href="./src/assets/v.jpg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="canonical" href="https://vedhaai.in" />
     
     <!-- Open Graph / Facebook Meta Tags -->
@@ -35,13 +35,15 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     
-    <!-- Google Site Verification (add your verification code) -->
-    <meta name="google-site-verification" content="your-google-verification-code-here" />
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="" />
     
     <!-- Fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" as="style" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="/src/assets/homepage.jpg" fetchpriority="high" />
     
     <!-- Structured Data - Organization Schema -->
     <script type="application/ld+json">
@@ -127,8 +129,19 @@
         "postalCode": "411044",
         "addressCountry": "IN"
       },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "18.6508",
+        "longitude": "73.7707"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
       "priceRange": "₹₹₹",
-      "areaServed": "IN",
+      "areaServed": "Pune, PCMC, Hinjawadi",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.8",

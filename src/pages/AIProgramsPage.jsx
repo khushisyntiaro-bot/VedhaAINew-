@@ -15,7 +15,7 @@ import {
   Code2,
   Check
 } from "lucide-react";
-import onlineTrainingImg from "../assets/online-training.jpg";
+import onlineTrainingImg from "../assets/online-training.webp";
 
 export const AIProgramsPage = ({
   onNavigate,

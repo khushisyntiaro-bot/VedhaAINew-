@@ -19,8 +19,8 @@ import {
   Compass,
   Briefcase
 } from "lucide-react";
-import aiSummitImage from "../assets/AISUBMMITIMG2.jpg";
-import aiSummitMainImage from "../assets/AI Summit.jpg";
+import aiSummitImage from "../assets/AISUBMMITIMG2.webp";
+import aiSummitMainImage from "../assets/AI Summit.webp";
 
 export const CollegeAISummitSection = ({
   onOpenBookDemo,

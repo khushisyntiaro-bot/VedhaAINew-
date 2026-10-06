@@ -183,7 +183,7 @@ export const COURSE_METADATA = {
 export const ORGANIZATION_SEO = {
   name: "VedhaAI",
   url: "https://vedhaai.in",
-  logo: "https://vedhaai.in/vedhaailogo.png",
+  logo: "https://vedhaai.in/vedhaailogo.webp",
   description: "Modern IT training academy offering industry-standard courses with 100% guaranteed internship",
   contact: {
     phone: "+91-88055-79222",
