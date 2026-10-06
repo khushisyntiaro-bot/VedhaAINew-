@@ -1,0 +1,33 @@
+# Robots.txt for VedhaAI Website
+
+# Allow all search engines
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /.env
+Disallow: /*.json$
+
+# Specific instructions for Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# Specific instructions for Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://vedhaai.in/sitemap.xml
+
+# Request rate
+Request-rate: 1/10s
